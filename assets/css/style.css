@@ -1,0 +1,192 @@
+body {
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+    overflow: hidden;
+}
+
+hr{
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+::placeholder { 
+    font-size: 14px;
+    padding: 18px;
+    color: #f8f8f8;
+}
+
+.col-9{
+    padding: 0px;
+}
+
+.wa-chat{
+    background-image: url('images/bg.png');
+    min-height: 90vh;
+}
+
+.wa-navbar{
+    background-color: #EDEDED;
+    height: 58px;
+}
+
+.wa-navbar img{
+    width: 44px;
+    margin: 8px;
+}
+
+.wa-contatos{
+    background-color: #f8f8f8;
+}
+
+.wa-item-chat{
+    padding: 5px;
+    background: #fff;
+}
+
+.wa-item-chat:hover{
+    background-color: #EDEDED;
+    cursor: pointer;
+}
+
+.wa-item-chat-active {
+    background-color: #EDEDED;
+}
+
+.wa-item-chat img{
+    width: 54px;
+    margin-left: 12px;
+}
+
+.wa-item-chat b{
+    margin-left: 12px;
+    font-weight: 500;
+}
+
+.wa-item-chat span{
+    color: rgba(0,0,0,.4);
+    font-size: 14px;
+}
+
+.wa-preview-message{
+    color: rgba(0,0,0,.6);
+    font-size: 14px;
+    margin-left: 12px;
+}
+
+.wa-input{
+    border-radius: 20px;
+    margin-left: 10px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    border: none;
+}
+
+.wa-badge {
+    background-color: #09d261;
+    color: white !important;
+}
+
+.wa-introducao{
+    background-color: #f7f9fa;
+    min-height: 99vh;
+    border-bottom: 6px solid #58e870;
+}
+
+.wa-introducao img {
+    width: 300px;
+}
+
+.wa-card-introducao{
+    width: 550px;
+    text-align: center;
+}
+
+.wa-card-introducao h1{
+    font-size: 32px;
+    color: #4b5961;
+}
+
+.wa-card-introducao p{
+    font-size: 14px;
+    color: #929fa6;
+}
+
+.wa-card-introducao a{
+    color: #07bc4c;
+    text-decoration: none;
+}
+
+.wa-icon{
+    color: #7e868a;
+    margin-top: 16px;
+}
+
+.sent:hover {
+    cursor: pointer;
+}
+
+.dropdown-item{
+    font-size: 14px;
+    color: #4b5961;
+}
+
+.dropdown-menu{
+    left: -64px !important;
+}
+
+.wa-panel-texto{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: #eee;
+    width: 100%;
+}
+
+.wa-card-chat{
+    font-size: 14px !important;
+    padding: 7px !important;
+}
+
+.wa-card-chat-bottom-right {
+    text-align: right;
+    margin-top: -20px;
+}
+
+.wa-card-chat-bottom-left {
+    text-align: left;
+    margin-top: -20px;
+}
+
+.wa-card-yellow{
+    background-color: #fdf1c7;
+}
+
+.wa-card-green{
+    background-color: #DCF8C6;
+    width: max-content;
+    max-width: 475px;
+    float: right !important;
+}
+
+.wa-card-default{
+    background-color: white;
+    width: max-content;
+    max-width: 475px;
+    float: left !important;
+}
+
+.wa-chat-icon-done-all{
+    color: #8dcbe2;
+    font-size: 16px !important;
+}
+
+.wa-chat-icon{
+    color: #8dcbe2;
+    font-size: 16px !important;
+}
+
+.messages-box {
+    height: 520px;
+    max-height: 520px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}

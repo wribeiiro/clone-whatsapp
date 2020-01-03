@@ -1,0 +1,15 @@
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule .* index.php/$0 [PT,L]
+#RewriteRule ^(.*)$ /index.php/$1 [L]
+
+#bloqueia download da estrutura de pastas por wget
+#RewriteCond %{HTTP_USER_AGENT} wget [NC]
+#RewriteRule .* - [F]
+
+#bloquear listagem de arquivos
+#Options -Indexes
+
+#forcar a insercao de www
+#RewriteCond %{HTTP_HOST} !^$
