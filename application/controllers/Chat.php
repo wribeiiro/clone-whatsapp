@@ -54,63 +54,58 @@ class Chat extends CI_Controller
 
     public function authfb()
     {
-        require_once(APPPATH . 'libraries/Facebook/autoload.php');
+
+        require_once APPPATH . '..\vendor\autoload.php';
 
         $fb = new Facebook\Facebook([
             'app_id'                => APP_ID,
             'app_secret'            => APP_SECRET,
             'default_graph_version' => GRAPH_VERSION,
+            'persistent_data_handler' => DATA_HANDLER
         ]);
 
-        $helper      = $fb->getRedirectLoginHelper();
+        $helper = $fb->getRedirectLoginHelper();
+
+        if (isset($_GET['state'])) {
+            $helper->getPersistentDataHandler()->set('state', $_GET['state']);
+        }
+
         $permissions = ['email']; // Optional permissions
 
         try {
-            if (isset($this->session->userdata['session_fb']) && !empty($this->session->userdata['session_fb'])) {
-                $accessToken = $this->session->userdata['session_fb'];
+            if (isset($_SESSION["session_fb"]) && !empty($_SESSION["session_fb"])) {
+                $accessToken = $_SESSION["session_fb"];
             } else {
                 $accessToken = $helper->getAccessToken();
-                $this->session->set_userdata("session_fb", $accessToken);
+                $_SESSION["session_fb"] = $accessToken;
             }
         } catch (Facebook\Exceptions\FacebookResponseException $e) {
-            // When Graph returns an error
-            echo 'Graph returned an error: ' . $e->getMessage() . '46';
-            exit;
+            pre($e);
         } catch (Facebook\Exceptions\FacebookSDKException $e) {
-            // When validation fails or other local issues
-            echo 'Facebook SDK returned an error: ' . $e->getMessage() . '50';
-            exit;
+            pre($e);
         }
 
+        $urlLogin      = base_url('authfb');
+        $toFacebookURL = $helper->getLoginUrl($urlLogin, $permissions);
+
         if (!isset($accessToken)) {
-            $urlLogin      = base_url('');
-            $toFacebookURL = $helper->getLoginUrl($urlLogin, $permissions);
+            echo "<script>window.location('$toFacebookURL')</script>";
         } else {
-            $urlLogin      = base_url('');
-            $toFacebookURL = $helper->getLoginUrl($urlLogin, $permissions);
-
-            if (isset($this->session->userdata['session_fb']) && !empty($this->session->userdata['session_fb'])) {
-                $fb->setDefaultAccessToken($this->session->userdata['session_fb']);
-            } else {
-                $this->session->userdata['session_fb'] = (string) $accessToken;
-                $oAuth2Client                          = $fb->getOAuth2Client();
-                $this->session->userdata['session_fb'] = $oAuth2Client->getLongLivedAccessToken($this->session->userdata['session_fb']);
-
-                $fb->setDefaultAccessToken($this->session->userdata['session_fb']);
+            if (!isset($_SESSION["session_fb"]) && empty($_SESSION["session_fb"])) {
+                $_SESSION["session_fb"] = $accessToken;
             }
+
+            $fb->setDefaultAccessToken($_SESSION["session_fb"]);
 
             try {
                 $response = $fb->get('/me?fields=name, picture, email');
                 $user     = $response->getGraphUser();
-                
-                pre($user, true);
 
+                pre($user, true);
             } catch (Facebook\Exceptions\FacebookResponseException $e) {
-                echo 'Graph returned an error: ' . $e->getMessage() . '77';
-                exit;
+                pre($e);
             } catch (Facebook\Exceptions\FacebookSDKException $e) {
-                echo 'Facebook SDK returned an error: ' . $e->getMessage() . '80';
-                exit;
+                pre($e);
             }
         }
     }

@@ -1,0 +1,20 @@
+{
+    "name": "Clone whatsapp",
+    "description": "",
+    "minimum-stability": "stable",
+    "license": "",
+    "authors": [
+        {
+            "name": "Wellisson Ribeiro",
+            "email": "welleh10@gmail.com",
+            "role": "Developer",
+            "homepage": "https://wribeiiro.github.io/"
+        }
+    ],
+    "config": {
+        "vendor-dir": "vendor"
+    },
+    "require": {
+        "facebook/graph-sdk": "^5.7"
+    }
+}
