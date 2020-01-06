@@ -5,7 +5,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-12">
-            <form class="form-signin" method="post" id="loginform" action="<?=base_url('Chat/authentication')?>">
+            <form class="form-signin" method="post" id="loginform" action="<?=base_url('authentication')?>">
                 <div class="form-group">
                     <img class="mx-auto d-block" src="https://i.ya-webdesign.com/images/pow-png-zap-4.png" alt="" width="120" height="120">
                 </div>
@@ -44,6 +44,14 @@
                 
                 <div class="form-group">
                     <button style="background: #ED1B24; border: none" class="btn btn-primary btn-block" type="submit">Entrar</button>
+                </div>
+            </form>
+
+            <form class="form-signin" method="post" id="loginform" action="<?=base_url('authfb')?>">
+                <div class="form-group">
+                    <button style="background: #4267B2; border: none" class="btn btn-secondary btn-block" type="submit">
+                        <i class="fa fa-facebook"></i> Entrar com Facebook
+                    </button>
                 </div>
             </form>
         </div>

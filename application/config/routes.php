@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
 /*
 | -------------------------------------------------------------------------
@@ -49,6 +49,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-$route['default_controller']      = 'Chat/auth';
-$route['404_override']            = '';
-$route['translate_uri_dashes']    = FALSE;
+$route['default_controller']    = 'Chat/auth';
+$route['index']                 = 'Chat/index';
+$route['authentication']        = 'Chat/authentication';
+$route['authfb']        = 'Chat/authfb';
+$route['logoff']                = 'Chat/logoff';
+$route['returnListUsers']       = 'Chat/returnListUsers';
+$route['returnMessages']        = 'Chat/returnMessages';
+$route['sendMessage']           = 'Chat/sendMessage';
+$route['updateWorkUser']        = 'Chat/updateWorkUser';
+$route['updateWorkUser']        = 'Chat/updateWorkUser';
+$route['404_override']          = '';
+$route['translate_uri_dashes']  = FALSE;
