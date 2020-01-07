@@ -6,14 +6,18 @@ class Chat extends CI_Controller
 
     public function __construct()
     {
-
         parent::__construct();
+
         $this->load->model('Chat_Model', 'chat');
         $this->load->model('Users_Model', 'userm');
     }
 
     public function index()
     {
+        if (empty($this->session->userdata('sessao_user'))) {
+            redirect('');
+        }
+        
         $this->dados['titulo'] = 'ChatZap';
         $this->load->view('chat/index', $this->dados);
     }
@@ -47,7 +51,7 @@ class Chat extends CI_Controller
             $this->session->set_userdata("sessao_user", $user);
             redirect('index');
         } else {
-            $this->session->set_flashdata('erro_login', 'Login/Senha inválidos!');
+            $this->session->set_flashdata('erro_login', 'Invalid credentials!');
             redirect('');
         }
     }
