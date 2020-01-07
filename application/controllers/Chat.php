@@ -54,58 +54,77 @@ class Chat extends CI_Controller
 
     public function authfb()
     {
-
         require_once APPPATH . '..\vendor\autoload.php';
 
         $fb = new Facebook\Facebook([
-            'app_id'                => APP_ID,
-            'app_secret'            => APP_SECRET,
-            'default_graph_version' => GRAPH_VERSION,
-            'persistent_data_handler' => DATA_HANDLER
+            'app_id'                  => APP_ID,
+            'app_secret'              => APP_SECRET,
+            'default_graph_version'   => GRAPH_VERSION
         ]);
 
-        $helper = $fb->getRedirectLoginHelper();
-
-        if (isset($_GET['state'])) {
-            $helper->getPersistentDataHandler()->set('state', $_GET['state']);
-        }
-
+        $helper      = $fb->getRedirectLoginHelper();
         $permissions = ['email']; // Optional permissions
 
         try {
-            if (isset($_SESSION["session_fb"]) && !empty($_SESSION["session_fb"])) {
-                $accessToken = $_SESSION["session_fb"];
+            if (isset($_SESSION['face_access_token'])) {
+                $accessToken = $_SESSION['face_access_token'];
             } else {
                 $accessToken = $helper->getAccessToken();
-                $_SESSION["session_fb"] = $accessToken;
             }
         } catch (Facebook\Exceptions\FacebookResponseException $e) {
-            pre($e);
+            echo 'Graph returned an error: ' . $e->getMessage();
+            exit;
         } catch (Facebook\Exceptions\FacebookSDKException $e) {
-            pre($e);
+            echo 'Facebook SDK returned an error: ' . $e->getMessage();
+            exit;
         }
 
-        $urlLogin      = base_url('authfb');
-        $toFacebookURL = $helper->getLoginUrl($urlLogin, $permissions);
-
         if (!isset($accessToken)) {
-            echo "<script>window.location('$toFacebookURL')</script>";
+            $redirect  = $helper->getLoginUrl(base_url('authfb'), $permissions);
+            header("Location: $redirect");
         } else {
-            if (!isset($_SESSION["session_fb"]) && empty($_SESSION["session_fb"])) {
-                $_SESSION["session_fb"] = $accessToken;
+            $redirect  = $helper->getLoginUrl(base_url('authfb'), $permissions);
+            
+            if(isset($_SESSION['face_access_token'])){
+                $fb->setDefaultAccessToken($_SESSION['face_access_token']);
+            } else {
+                $_SESSION['face_access_token'] = (string) $accessToken;
+                $oAuth2Client                  = $fb->getOAuth2Client();
+                $_SESSION['face_access_token'] = (string) $oAuth2Client->getLongLivedAccessToken($_SESSION['face_access_token']);
+                $fb->setDefaultAccessToken($_SESSION['face_access_token']);	
             }
-
-            $fb->setDefaultAccessToken($_SESSION["session_fb"]);
-
+            
             try {
-                $response = $fb->get('/me?fields=name, picture, email');
-                $user     = $response->getGraphUser();
+                $response   = $fb->get('/me?fields=name, picture, email');
+                $user       = $response->getGraphUser();
+                $resultUser = $this->userm->getUser($user['email'], '', true);
 
-                pre($user, true);
-            } catch (Facebook\Exceptions\FacebookResponseException $e) {
-                pre($e);
-            } catch (Facebook\Exceptions\FacebookSDKException $e) {
-                pre($e);
+                if ($resultUser) {
+                    $this->session->set_userdata("sessao_user", $resultUser);
+                    redirect('index');
+                } else {
+                    $arrayUser = array(
+                        'nome'   => $user['name'],
+                        'email'  => $user['email'],
+                        'login'  => $user['name'],
+                        'senha'  => '',
+                        'inicio' => 0,
+                    );
+
+                    $rs = $this->userm->insertUser($arrayUser);
+
+                    if($rs) {
+                        $this->session->set_userdata("sessao_user", $arrayUser);
+                        redirect('index');
+                    }
+                }
+
+            } catch(Facebook\Exceptions\FacebookResponseException $e) {
+                echo 'Graph returned an error: ' . $e->getMessage();
+                exit;
+            } catch(Facebook\Exceptions\FacebookSDKException $e) {
+                echo 'Facebook SDK returned an error: ' . $e->getMessage();
+                exit;
             }
         }
     }

@@ -10,8 +10,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 define('APP_ID', '746379449185221');
 define('APP_SECRET', '1e7d7090ac650178f32492e14e10443e');
-define('GRAPH_VERSION', 'v5.7');
-define('DATA_HANDLER', 'session');
+define('GRAPH_VERSION', 'v2.9');
 
 /*
 |--------------------------------------------------------------------------

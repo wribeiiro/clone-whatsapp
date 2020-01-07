@@ -12,11 +12,16 @@ class Users_Model extends CI_Model {
      *
      * @param [type] $email
      * @param [type] $pass
+     * @param boolean $fb
      * @return void
      */
- 	public function getUser($email, $pass) {
+ 	public function getUser($email, $pass, $fb = false) {
+        $sql = "SELECT * FROM usuarios WHERE email  = '$email' AND senha = '$pass' LIMIT 1 ";
 
-		$sql   = "SELECT * FROM usuarios WHERE email  = '$email' AND senha = '$pass' LIMIT 1";
+        if($fb) {
+            $sql = "SELECT * FROM usuarios WHERE email  = '$email' LIMIT 1";
+        }
+
 		$query = $this->db->query($sql);
 
 		if($query->num_rows() > 0) {
@@ -96,5 +101,21 @@ class Users_Model extends CI_Model {
 		}
 
 		return false;
-	}
+    }
+    
+    /**
+     * Undocumented function
+     *
+     * @param [type] $arrayUser
+     * @return void
+     */
+    public function insertUser($arrayUser) {
+        $this->db->insert('usuarios', $arrayUser);
+        
+        if($this->db->affected_rows() > 0) {
+            return true;
+        }
+
+        return false;
+    } 
 }
