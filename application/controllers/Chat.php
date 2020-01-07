@@ -109,6 +109,7 @@ class Chat extends CI_Controller
                         'login'  => $user['name'],
                         'senha'  => '',
                         'inicio' => 0,
+                        'imagem' => $user['picture']['url']
                     );
 
                     $rs = $this->userm->insertUser($arrayUser);

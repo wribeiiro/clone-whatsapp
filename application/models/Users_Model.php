@@ -65,7 +65,7 @@ class Users_Model extends CI_Model {
      */
     public function getLastMessageUsers($idUser, $idPara) {
         $sql = "SELECT 
-            DATE_FORMAT(mensagens.data_hora, '%d/%m/%Y %H:%m') as data,
+            DATE_FORMAT(mensagens.data_hora, '%d/%m/%Y') as data,
             mensagens.mensagem as mensagem
         FROM 
             mensagens 

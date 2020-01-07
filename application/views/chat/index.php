@@ -58,17 +58,12 @@
             </div>
 
             <div class="wa-panel-texto" style="display: none">
-                <div style="text-align: center">
-                    <div class="row">
-                        <div class="col-1">
-                            <i class="large material-icons wa-icon">mood</i>
-                        </div>
-                        <div class="col-10">
-                            <input class="form-control wa-input" id="mensagem" required placeholder="Digite uma mensagem"/>
-                        </div>
-                        <div class="col-1">
-                            <i class="large material-icons wa-icon sent">send</i>
-                        </div>
+                <div class="row">
+                    <div class="col-11">
+                        <input class="form-control wa-input" id="mensagem" required placeholder="Digite uma mensagem" style="text-align: left !important"/>
+                    </div>
+                    <div class="col-1">
+                        <i class="large material-icons wa-icon sent">send</i>
                     </div>
                 </div>
             </div>
