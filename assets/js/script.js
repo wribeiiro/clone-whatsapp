@@ -172,7 +172,7 @@ function sendMessage() {
                 id_contato: id_
             },
             success: (msg) => {
-                if (msg == 'OK') {
+                if (msg.status == 'OK') {
                     loadMessages();
                 }
             },

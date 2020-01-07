@@ -218,22 +218,22 @@ class Chat extends CI_Controller
         $idTo    = $this->security->xss_clean($this->input->post('id_contato'));
         $idFrom  = $this->session->userdata['sessao_user'][0]['id'];
         $message = $this->security->xss_clean($this->input->post('mensagem'));
-        $nick    = $this->session->userdata['sessao_user'][0]['nick'];
 
-        $result = $this->chat->insertMessages(array(
+        $arrMessage = array(
             'id_de'     => $idFrom,
             'id_para'   => $idTo,
-            'nick'      => $nick,
             'mensagem'  => $message,
-            'ip'        => $_SERVER['REMOTE_ADDR'],
-            'data_hora' => date('Y-m-d H:m:i')
+            'data_hora' => date('Y-m-d H:m:i'),
+            'ip'        => $_SERVER['REMOTE_ADDR']
 
-        ));
+        );
 
-        $this->updateWorkUser();
+        $result = $this->chat->insertMessages($arrMessage);
 
         if ($result) {
-            echo 'OK';
+            $arr['status'] = 'OK';
+
+            response($arr);
         }
     }
 }
