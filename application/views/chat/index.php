@@ -41,8 +41,8 @@
                 </div>
             </div>
 
-            <div class="wa-chat" >
-                <div class="messages-box" style="background: url(<?=base_url('')?>assets/images/bg.png)"> 
+            <div class="wa-chat">
+                <div class="messages-box" style="background: url(<?=base_url('assets/images/bg.png')?>)"> 
                     <div class="wa-introducao">
                         <div class="offset-3 wa-card-introducao">
                             <img src="<?=base_url()?>assets/images/introducao.jpg"/>
