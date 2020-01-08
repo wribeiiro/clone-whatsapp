@@ -4,19 +4,27 @@ let firstLoad = false;
 let inputEmoji;
 
 $(document).ready(() => {
-    loadUsers();
+    let curURI = window.location.href;
 
-    setInterval(() => {
-        if (id_ && click) {
-            loadMessages();
-        }
-    }, 1250);
+    if(curURI != BASE_URL) {   
+        loadUsers();
 
-    /*inputEmoji =$("#mensagem").emojioneArea({
-        pickerPosition: "top",
-        filtersPosition: "top",
-        tonesStyle: "checkbox"
-    });*/
+        setInterval(() => {
+            if (id_ && click) {
+                loadMessages();
+            }
+        }, 1250);
+
+        /*inputEmoji =$("#mensagem").emojioneArea({
+            pickerPosition: "top",
+            filtersPosition: "top",
+            tonesStyle: "checkbox"
+        });*/
+    }
+});
+
+$('#btnSignup').on('click', () => {
+    $('#modalSignup').modal();
 });
 
 $('.sent').on('click', () => {

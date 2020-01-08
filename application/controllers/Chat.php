@@ -134,6 +134,40 @@ class Chat extends CI_Controller
         }
     }
 
+    public function signup()
+    {
+
+        //pre($this->input->post(), true);
+        
+        $name  = $this->input->post("name");
+        $email = $this->input->post("email");
+        $email = addslashes($this->security->xss_clean($email));
+        $pass  = addslashes(md5($this->security->xss_clean($this->input->post("password"))));
+        
+        $resultUser = $this->userm->getUser($email, '', true);
+
+        if ($resultUser) {
+            $this->session->set_flashdata('erro_login', 'Email already exists!');
+            redirect('');
+        } else {
+            $arrayUser = array(
+                'nome'   => $name,
+                'email'  => $email,
+                'login'  => $name,
+                'senha'  => $pass,
+                'inicio' => 0,
+                'imagem' => ''
+            );
+
+            $rs = $this->userm->insertUser($arrayUser);
+
+            if($rs) {
+                $this->session->set_flashdata('success', 'Registration successfully complete!');
+                redirect('');
+            }
+        }
+    }
+
     /**
      * Undocumented function
      *
