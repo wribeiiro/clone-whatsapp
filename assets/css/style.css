@@ -20,7 +20,7 @@ hr{
 
 .list-contacts {
     position: absolute !important;
-    max-height: 90vh !important;
+    max-height: 85vh !important;
     max-width: 100%;
     width: 100% !important;
     overflow-y: scroll !important;
@@ -28,7 +28,6 @@ hr{
 }    
 
 .wa-chat{
-    background-image: url('images/bg.png');
     min-height: 90vh;
 }
 

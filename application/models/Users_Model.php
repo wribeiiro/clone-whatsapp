@@ -42,7 +42,8 @@ class Users_Model extends CI_Model {
         $sql = "SELECT usuarios.nome AS nome, 
             usuarios.email AS email, 
             usuarios.id AS id,
-            usuarios.inicio AS inicio
+            usuarios.inicio AS inicio,
+            usuarios.imagem AS imagem
         FROM 
             usuarios 
         WHERE 

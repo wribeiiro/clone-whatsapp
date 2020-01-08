@@ -148,12 +148,12 @@ $this->load->view('includes/header');
 
                 <div class="form-group">
                     <label style="color: #fff; font-weight: 600"><span style="color: #fff; font-weight: 600">*</span> Email:</label>
-                    <input type="text" class="form-control" placeholder="Your Email *" id="email" name="email" />
+                    <input type="text" class="form-control" placeholder="Your Email *" id="email" name="email" required />
                 </div>
 
                 <div class="form-group">
                     <label style="color: #fff; font-weight: 600"><span style="color: #fff; font-weight: 600">*</span> Password:</label>
-                    <input type="password" class="form-control" placeholder="Your Password *" id="pass" name="pass" />
+                    <input type="password" class="form-control" placeholder="Your Password *" id="pass" name="pass" required />
                 </div>
 
                 <div class="form-group">

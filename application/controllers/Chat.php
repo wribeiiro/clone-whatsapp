@@ -217,6 +217,7 @@ class Chat extends CI_Controller
                     'nome'      => $row['nome'],
                     'email'     => $row['email'],
                     'id'        => $row['id'],
+                    'imagem'    => $row['imagem'],
                     'inicio'    => (float) $row['inicio'],
                     'data'      => $result2 ? $result2->data : '',
                     'mensagem'  => $result2 ? $result2->mensagem : ''

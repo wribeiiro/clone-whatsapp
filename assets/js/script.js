@@ -125,16 +125,17 @@ function fixScrollChatBottom() {
 function loadUsers() {
     let createMenu = (data) => {
         let listContact = $('.list-contacts');
-
+        
         data.forEach((user) => {
             let message = user.mensagem ? user.mensagem : 'Clique para iniciar..';
-            let date = user.data ? user.data : '';
+            let date    = user.data ? user.data : '';
+            let image   = user.imagem ? user.imagem : 'https://cdn3.iconfinder.com/data/icons/diversity-avatars/64/hipster-man-asian-512.png';
 
             let template = `
                 <div class="col-12 wa-item-chat" id="${user.id}">
                     <div class="row">
                         <div class="col-2">
-                            <img src="`+ BASE_URL + `assets/images/profile.png" class="rounded-circle mx-auto d-block"/>
+                            <img src="${image}" class="rounded-circle mx-auto d-block"/>
                         </div>
 
                         <div class="col-6" style="border-bottom: solid 1px #F5F5F5">
@@ -161,6 +162,7 @@ function loadUsers() {
                
                 $('#nome_contato').html(inf);
                 $('#status_contato').html(status);
+                $('#imagem_contato').attr('src', image);
 
                 $(`.wa-item-chat`).removeClass('wa-item-chat-active');
                 $(`#${user.id}`).addClass('wa-item-chat-active');

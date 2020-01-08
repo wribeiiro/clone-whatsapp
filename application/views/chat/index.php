@@ -12,7 +12,7 @@
                 <div class="container">
                     <div class="row navbar-message" style="display: none">
                         <div class="col-1">
-                            <img src="<?=base_url()?>assets/images/profile.png" class="rounded-circle"/>
+                            <img id="imagem_contato" src="" class="rounded-circle"/>
                         </div>
                         <div class="col-9">
                             <strong><span id="nome_contato" style="font-size: 12px;"></span></strong><br/>
