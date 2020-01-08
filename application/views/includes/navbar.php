@@ -28,10 +28,8 @@
     </div>
 </div>
 
-<div class="list-contacts">
-    <div class="row">
-        <div class="col-12 wa-contatos">
-            <input class="form-control wa-input" placeholder="Procurar ou começar uma nova conversa"/>
-        </div>
+<div class="row list-contacts">
+    <div class="col-12 wa-contatos">
+        <input class="form-control wa-input" placeholder="Procurar ou começar uma nova conversa"/>
     </div>
 </div>

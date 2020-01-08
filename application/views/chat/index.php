@@ -15,10 +15,8 @@
                             <img src="<?=base_url()?>assets/images/profile.png" class="rounded-circle"/>
                         </div>
                         <div class="col-9">
-                            <div style="margin-top: 10px">
-                                <strong><span id="nome_contato" style="font-size: 12px;"></span></strong><br/>
-                                <span id="status_contato" style="font-size: 12px; color: #5F5F5F"></span>
-                            </div>
+                            <strong><span id="nome_contato" style="font-size: 12px;"></span></strong><br/>
+                            <span id="status_contato" style="font-size: 12px; color: #5F5F5F"></span>
                         </div>
                         <div class="col-1">
                             <i class="large material-icons wa-icon">search</i>

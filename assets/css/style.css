@@ -18,6 +18,15 @@ hr{
     padding: 0px;
 }
 
+.list-contacts {
+    position: absolute !important;
+    max-height: 90vh !important;
+    max-width: 100%;
+    width: 100% !important;
+    overflow-y: scroll !important;
+    overflow-x: hidden;
+}    
+
 .wa-chat{
     background-image: url('images/bg.png');
     min-height: 90vh;
@@ -91,7 +100,7 @@ hr{
 
 .wa-introducao{
     background-color: #f7f9fa;
-    min-height: 99vh;
+    min-height: 100%;
     border-bottom: 6px solid #58e870;
 }
 

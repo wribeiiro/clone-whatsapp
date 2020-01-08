@@ -131,19 +131,21 @@ function loadUsers() {
             let date = user.data ? user.data : '';
 
             let template = `
-                <div class="row wa-item-chat" id="${user.id}">
-                    <div class="col-2">
-                        <img src="`+ BASE_URL + `assets/images/profile.png" class="rounded-circle mx-auto d-block"/>
-                    </div>
+                <div class="col-12 wa-item-chat" id="${user.id}">
+                    <div class="row">
+                        <div class="col-2">
+                            <img src="`+ BASE_URL + `assets/images/profile.png" class="rounded-circle mx-auto d-block"/>
+                        </div>
 
-                    <div class="col-6" style="border-bottom: solid 1px #F5F5F5">
-                        <span style="color: #454545" id="name-${user.id}">&nbsp;&nbsp; <strong>${user.nome}</strong></span><br/>
-                        <span style="display: none" id="email-${user.id}">${user.email}</span>
-                        <p class="wa-preview-message mt-10">${message}</p>
-                    </div>
+                        <div class="col-6" style="border-bottom: solid 1px #F5F5F5">
+                            <span style="color: #454545" id="name-${user.id}">&nbsp;&nbsp; <strong>${user.nome}</strong></span><br/>
+                            <span style="display: none" id="email-${user.id}">${user.email}</span>
+                            <p class="wa-preview-message mt-10">${message}</p>
+                        </div>
 
-                    <div class="col-4" style="text-align: right; border-bottom: solid 1px #F5F5F5">
-                        <span style="font-size: 10px">${date}</span>
+                        <div class="col-4" style="text-align: right; border-bottom: solid 1px #F5F5F5">
+                            <span style="font-size: 10px">${date}</span>
+                        </div>
                     </div>
                 </div>
             `;
