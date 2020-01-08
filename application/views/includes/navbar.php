@@ -1,12 +1,12 @@
 <div class="row wa-navbar">
     <div class="col-8">
-        <?php if($this->session->userdata['sessao_user'][0]['imagem']): ?>
-            <img src="<?=$this->session->userdata['sessao_user'][0]['imagem']?>" class="rounded-circle"/>
+        <?php if($this->session->userdata['sessao_user']['imagem']): ?>
+            <img src="<?=$this->session->userdata['sessao_user']['imagem']?>" class="rounded-circle"/>
         <?php else: ?>
             <img src="<?= base_url()?>assets/images/profile.png" class="rounded-circle"/>
         <?php endif; ?>
         
-        <?=$this->session->userdata['sessao_user'][0]['nome']?>
+        <?=$this->session->userdata['sessao_user']['nome']?>
     </div>
     <div class="col-2">
         <i class="large material-icons wa-icon">chat</i>

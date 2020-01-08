@@ -1,7 +1,18 @@
 <?php
 $this->load->view('includes/header');
 ?>
+
 <style>
+
+    body {
+        min-height: 100vh; 
+        background:linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+        url('https://www.lfnetworking.org/wp-content/uploads/sites/55/2017/12/cog_bg_networking.jpg') repeat;
+        background-position:center top;
+        background-attachment:fixed;
+        background-size:cover;
+    }
+
     .login-container {
         margin-top: 5%;
         margin-bottom: 5%;
@@ -12,6 +23,7 @@ $this->load->view('includes/header');
         box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
         border-top-right-radius: 1rem;
         border-bottom-right-radius: 1rem;
+        background: #fff;
     }
 
     .login-form-1 h3 {
@@ -136,5 +148,3 @@ $this->load->view('includes/header');
         </div>
     </div>
 </div>
-
-<?php $this->load->view('includes/footer'); ?>

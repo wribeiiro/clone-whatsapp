@@ -70,15 +70,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | The $query_builder variables lets you determine whether or not to load
 | the query builder class.
 */
-$active_group = 'local';
+$active_group = 'web';
 $query_builder = TRUE;
 
 $db['web'] = array(
-	'dsn'   => 'mysql:host=200.98.69.63;dbname=api',
-	'hostname' => '200.98.69.63',
-	'username' => 'adm',
-	'password' => 'vb4589',
-	'database' => 'api',
+	'dsn'   => 'mysql:host=brasilnota.com.br;dbname=ifcombr_teste',
+	'hostname' => 'brasilnota.com.br',
+	'username' => 'ifcombr_suporte',
+	'password' => 'suporteA1012',
+	'database' => 'ifcombr_teste',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,

@@ -4,6 +4,8 @@
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="https://rawgit.com/mervick/emojionearea/master/dist/emojionearea.js"></script>
+    
     <script src="<?=base_url('assets/js/script.js')?>"></script>
-</body>
+    
+    </body>
 </html>

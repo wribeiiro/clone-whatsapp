@@ -46,7 +46,7 @@ class Chat extends CI_Controller
         $user  = $this->userm->getUser($email, $pass);
 
         if ($user) {
-            $this->userm->updateWork($user[0]['id'], time());
+            $this->userm->updateWork($user['id'], time());
 
             $this->session->set_userdata("sessao_user", $user);
             redirect('index');
@@ -58,7 +58,7 @@ class Chat extends CI_Controller
 
     public function authfb()
     {
-        require_once APPPATH . '..\vendor\autoload.php';
+        require_once APPPATH . '../vendor/autoload.php';
 
         $fb = new Facebook\Facebook([
             'app_id'                  => APP_ID,
@@ -160,7 +160,7 @@ class Chat extends CI_Controller
      */
     public function logoff()
     {
-        if ($this->userm->updateWork($this->session->userdata['sessao_user'][0]['id'], time())) {
+        if ($this->userm->updateWork($this->session->userdata['sessao_user']['id'], time())) {
             $this->session->unset_userdata("sessao_user");
             redirect('');
         }
@@ -173,11 +173,11 @@ class Chat extends CI_Controller
      */
     public function returnListUsers()
     {
-        $result = $this->userm->getAllUsers($this->session->userdata['sessao_user'][0]['id']);
+        $result = $this->userm->getAllUsers($this->session->userdata['sessao_user']['id']);
 
         if ($result) {
             foreach ($result as $row) {
-                $result2 = $this->userm->getLastMessageUsers($this->session->userdata['sessao_user'][0]['id'], $row['id']);
+                $result2 = $this->userm->getLastMessageUsers($this->session->userdata['sessao_user']['id'], $row['id']);
 
                 $array[] = array(
                     'nome'      => $row['nome'],
@@ -201,7 +201,7 @@ class Chat extends CI_Controller
     public function returnMessages()
     {
         $idTo   = $this->security->xss_clean($this->input->post('id_contato'));
-        $idFrom = $this->session->userdata['sessao_user'][0]['id'];
+        $idFrom = $this->session->userdata['sessao_user']['id'];
 
         $result = $this->chat->getAllMessages($idTo, $idFrom);
 
@@ -221,7 +221,7 @@ class Chat extends CI_Controller
     public function sendMessage()
     {
         $idTo    = $this->security->xss_clean($this->input->post('id_contato'));
-        $idFrom  = $this->session->userdata['sessao_user'][0]['id'];
+        $idFrom  = $this->session->userdata['sessao_user']['id'];
         $message = $this->security->xss_clean($this->input->post('mensagem'));
 
         $arrMessage = array(

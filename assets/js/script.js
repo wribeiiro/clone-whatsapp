@@ -169,9 +169,7 @@ function loadUsers() {
 }
 
 function sendMessage() {
-    if ($('#mensagem').val() == '') {
-        alert('Digite uma mensagem!');
-    } else {
+    const requestMessage = () => {
         $.ajax({
             type: 'POST',
             url: BASE_URL + 'Chat/sendMessage',
@@ -180,17 +178,19 @@ function sendMessage() {
                 id_contato: id_
             },
             success: (msg) => {
-                if (msg.status == 'OK') {
-                    loadMessages();
-                }
+                if (msg.status == 'OK') { loadMessages() }
             },
-            complete: () => {
-                fixScrollChatBottom();
-            },
+            complete: () => { fixScrollChatBottom() },
             error: (e) => { console.log(e) }
         });
 
         $("#mensagem").val('');
+    }
+
+    if ($('#mensagem').val() == '') {
+        alert('Digite uma mensagem!');
+    } else {
+        requestMessage();
     }
 
     return false;

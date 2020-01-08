@@ -1,9 +1,0 @@
-{ 
-    "configuracoes": [{    
-        "host": "localhost",
-        "username": "root",
-        "password": "",
-        "database": "api",
-        "port": "3306"
-    }] 
-}
