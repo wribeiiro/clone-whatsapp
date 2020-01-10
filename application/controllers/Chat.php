@@ -220,9 +220,14 @@ class Chat extends CI_Controller
                     'imagem'    => $row['imagem'],
                     'inicio'    => (float) $row['inicio'],
                     'data'      => $result2 ? $result2->data : '',
+                    'timestamp' => $result2 ? $result2->timestamp : 0,
                     'mensagem'  => $result2 ? $result2->mensagem : ''
                 );
             }
+
+            usort($array, function ($a, $b) {
+                return $b['timestamp'] - $a['timestamp'];
+            });
 
             response($array);
         }

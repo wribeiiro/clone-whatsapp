@@ -47,11 +47,11 @@ function deleteMessages() {
 function loadMessages() {
     let createMessages = (data) => {
         let str = `
-            <br><br><div class="row">
+            <div class="row form-group" style="margin-top: 0.8rem">
                 <div class="offset-2 col-8">
                     <div style="text-align: center">
                         <div class="card wa-card-chat wa-card-yellow">
-                            As mensagens que você sendMessage e as ligações que você fizer nessa conversa estão protegidas com criptografia de ponta-a-ponta.
+                            As mensagens que você enviar e as ligações que você fizer nessa conversa estão protegidas com criptografia de ponta-a-ponta.
                             Clique para mais informações.
                         </div> 
                     </div>
@@ -63,32 +63,30 @@ function loadMessages() {
             data.messages.forEach((messages) => {
                 if (data.id_sender == messages.id_de) {
                     str +=
-                        `<br>
-                        <div class="row">
-                            <div class="offset-6 col-5">
-                                <div class="card wa-card-chat wa-card-green">
-                                    ${messages.mensagem}
-                                    <div class="wa-card-chat-bottom-right">
-                                        <span style="font-size: 12px; color: #A3A3A3">${messages.data_hora}</span>
-                                        <i class="large material-icons wa-icon wa-chat-icon">&nbsp;</i>
-                                    </div>
+                    `<div class="row form-group">
+                        <div class="offset-6 col-5">
+                            <div class="card wa-card-chat wa-card-green">
+                                ${messages.mensagem}
+                                <div class="wa-card-chat-bottom-right">
+                                    <span style="font-size: 12px; color: #A3A3A3">${messages.data_hora}</span>
+                                    <i class="large material-icons wa-icon wa-chat-icon">&nbsp;</i>
                                 </div>
                             </div>
                         </div>
-                        <br>`
+                    </div>`
                 } else {
                     str +=
-                        `<div class="row">
-                            <div class="col-5 offset-1">
-                                <div class="card wa-card-chat wa-card-default" style="direction: left">
-                                    ${messages.mensagem}
-                                    <div class="wa-card-chat-bottom-right">
-                                        <span style="font-size: 12px; color: #A3A3A3">${messages.data_hora}</span>
-                                        <i class="large material-icons wa-icon wa-chat-icon">done</i>
-                                    </div>
+                    `<div class="row form-group">
+                        <div class="col-5 offset-1">
+                            <div class="card wa-card-chat wa-card-default" style="direction: left">
+                                ${messages.mensagem}
+                                <div class="wa-card-chat-bottom-right">
+                                    <span style="font-size: 12px; color: #A3A3A3">${messages.data_hora}</span>
+                                    <i class="large material-icons wa-icon wa-chat-icon">done</i>
                                 </div>
                             </div>
-                        </div><br>`;
+                        </div>
+                    </div>`;
                 }
 
                 $('.wa-panel-texto').show();
@@ -139,7 +137,7 @@ function loadUsers() {
                         </div>
 
                         <div class="col-6" style="border-bottom: solid 1px #F5F5F5">
-                            <span style="color: #454545" id="name-${user.id}">&nbsp;&nbsp; <strong>${user.nome}</strong></span><br/>
+                            <span style="color: #454545" id="name-${user.id}"><strong>${user.nome}</strong></span><br/>
                             <span style="display: none" id="email-${user.id}">${user.email}</span>
                             <p class="wa-preview-message mt-10">${message}</p>
                         </div>

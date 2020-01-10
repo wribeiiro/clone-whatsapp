@@ -38,4 +38,4 @@
     </div>
 </div>
 
-<div class="row list-contacts"> </div>
+<div class="row list-contacts form-group"> </div>

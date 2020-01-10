@@ -15,8 +15,10 @@
                             <img id="imagem_contato" src="" class="rounded-circle"/>
                         </div>
                         <div class="col-9">
-                            <strong><span id="nome_contato" style="font-size: 12px;"></span></strong><br/>
-                            <span id="status_contato" style="font-size: 12px; color: #5F5F5F"></span>
+                            <div style="margin-top: 0.8rem">
+                                <strong><span id="nome_contato" style="font-size: 12px;"></span></strong><br/>
+                                <span id="status_contato" style="font-size: 12px;"></span>
+                            </div>
                         </div>
                         <div class="col-1">
                             <i class="large material-icons wa-icon">search</i>
@@ -46,10 +48,10 @@
                             <img src="<?=base_url()?>assets/images/introducao.jpg"/>
                             <br/><br/>
                             <h1>Mantenha seu telefone conectado</h1><br/>
-                            <p>O WhatsApp Web conecta ao seu telefone para sincronizar suas mensagens. Para
+                            <p>O Chat Web conecta ao seu telefone para sincronizar suas mensagens. Para
                             diminuir o uso do seu plano de internet, conecte seu telefone a uma rede WiFi.</p>
                             <hr/>
-                            <p><span style="font-size: 18px;" class="fa fa-laptop"></span> O WhatsApp está disponível para Windows. <a href="https://www.whatsapp.com/download" target="_blank">Obtenha-o aqui</a>.</p>
+                            <p><span style="font-size: 18px;" class="fa fa-laptop"></span> O Chat está disponível para Windows. <a href="#" target="_blank">Obtenha-o aqui</a>.</p>
                         </div>
                     </div>
                 </div>
