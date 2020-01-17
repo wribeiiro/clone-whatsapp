@@ -1,6 +1,6 @@
 {
-    "name": "Clone whatsapp",
-    "description": "",
+    "name": "Clone WhatsApp",
+    "description": "Simple chat using php and jquery to make whatsapp style",
     "minimum-stability": "stable",
     "license": "",
     "authors": [
@@ -15,6 +15,7 @@
         "vendor-dir": "vendor"
     },
     "require": {
-        "facebook/graph-sdk": "^5.7"
+        "facebook/graph-sdk": "^5.7",
+        "matthiasmullie/minify": "1.3.*"
     }
 }

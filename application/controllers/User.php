@@ -1,25 +1,14 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Chat extends CI_Controller
+class User extends CI_Controller
 {
 
     public function __construct()
     {
         parent::__construct();
 
-        $this->load->model('Chat_Model', 'chat');
         $this->load->model('Users_Model', 'userm');
-    }
-
-    public function index()
-    {
-        if (empty($this->session->userdata('sessao_user'))) {
-            redirect('');
-        }
-        
-        $this->dados['titulo'] = 'Clone Whatsapp';
-        $this->load->view('chat/index', $this->dados);
     }
 
     public function auth()
@@ -230,55 +219,6 @@ class Chat extends CI_Controller
             });
 
             response($array);
-        }
-    }
-
-    /**
-     * Undocumented function
-     *
-     * @return void
-     */
-    public function returnMessages()
-    {
-        $idTo   = $this->security->xss_clean($this->input->post('id_contato'));
-        $idFrom = $this->session->userdata['sessao_user']['id'];
-
-        $result = $this->chat->getAllMessages($idTo, $idFrom);
-
-        if ($result) {
-            $arr['id_sender'] = $idFrom;
-            $arr['messages']  = $result;
-
-            response($arr);
-        }
-    }
-
-    /**
-     * Undocumented function
-     *
-     * @return void
-     */
-    public function sendMessage()
-    {
-        $idTo    = $this->security->xss_clean($this->input->post('id_contato'));
-        $idFrom  = $this->session->userdata['sessao_user']['id'];
-        $message = $this->security->xss_clean($this->input->post('mensagem'));
-
-        $arrMessage = array(
-            'id_de'     => $idFrom,
-            'id_para'   => $idTo,
-            'mensagem'  => $message,
-            'data_hora' => date('Y-m-d H:m:i'),
-            'ip'        => $_SERVER['REMOTE_ADDR']
-
-        );
-
-        $result = $this->chat->insertMessages($arrMessage);
-
-        if ($result) {
-            $arr['status'] = 'OK';
-
-            response($arr);
         }
     }
 }

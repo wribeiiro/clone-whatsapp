@@ -11,6 +11,11 @@ class ComposerStaticInitefc6d3314872b1bfdd09a4abafc020d7
     );
 
     public static $prefixLengthsPsr4 = array (
+        'M' => 
+        array (
+            'MatthiasMullie\\PathConverter\\' => 29,
+            'MatthiasMullie\\Minify\\' => 22,
+        ),
         'F' => 
         array (
             'Facebook\\' => 9,
@@ -18,6 +23,14 @@ class ComposerStaticInitefc6d3314872b1bfdd09a4abafc020d7
     );
 
     public static $prefixDirsPsr4 = array (
+        'MatthiasMullie\\PathConverter\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/matthiasmullie/path-converter/src',
+        ),
+        'MatthiasMullie\\Minify\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/matthiasmullie/minify/src',
+        ),
         'Facebook\\' => 
         array (
             0 => __DIR__ . '/..' . '/facebook/graph-sdk/src/Facebook',

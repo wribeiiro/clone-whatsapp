@@ -31,3 +31,21 @@ function pre($var, $exit = false) {
         exit;
     }
 }
+
+/**
+ * Undocumented function
+ *
+ * @param string $path
+ * @param boolean $time
+ * @return string
+ */
+function asset($path, $time = true) {
+    $file      = base_url("assets/{$path}");
+    $fileOnDir = dirname(__DIR__, 2) . "/assets/{$path}";
+
+    if ($time && file_exists($fileOnDir)) {
+        $file .= "?v=" . filemtime($fileOnDir);
+    }
+
+    return $file;
+}
