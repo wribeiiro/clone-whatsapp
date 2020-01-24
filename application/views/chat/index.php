@@ -33,7 +33,7 @@
                             <a class="dropdown-item" href="#">Arquivado</a>
                             <a class="dropdown-item" href="#">Destacado</a>
                             <a class="dropdown-item" href="#">Configuração</a>
-                            <a class="dropdown-item" href="<?= base_url('Chat/logoff') ?>">Fechar sessão</a>
+                            <a class="dropdown-item" href="<?= base_url('User/logoff') ?>">Fechar sessão</a>
                         </div>
                     </div>
                 </div>
