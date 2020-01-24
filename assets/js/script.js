@@ -174,7 +174,9 @@ function loadUsers() {
         type: 'GET',
         url: BASE_URL + 'Chat/returnListUsers',
         success: (data) => { createMenu(data) },
-        error: (e) => { console.log(e) }
+        beforeSend: ()  => { $('#loadingContacts').fadeIn() },
+        complete: ()    => { $('#loadingContacts').fadeOut() },
+        error: (e)      => {  $('#loadingContacts').fadeOut(); console.log(e) }
     });
 }
 

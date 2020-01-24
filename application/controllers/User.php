@@ -11,14 +11,24 @@ class User extends CI_Controller
         $this->load->model('Users_Model', 'userm');
     }
 
+    public function index()
+    {
+        if (empty($this->session->userdata('sessao_user'))) {
+            redirect('');
+        }
+        
+        $data['titulo'] = 'Clone Whatsapp';
+        $this->load->view('chat/index', $data);
+    }
+
     public function auth()
     {
         if (!empty($this->session->userdata('sessao_user'))) {
             redirect('index');
         }
 
-        $this->dados['titulo'] = 'Autenticaçao Clone Whatsapp';
-        $this->load->view('chat/auth', $this->dados);
+        $data['titulo'] = 'Autentication';
+        $this->load->view('chat/auth', $data);
     }
 
     /**
@@ -78,7 +88,7 @@ class User extends CI_Controller
         } else {
             $redirect  = $helper->getLoginUrl(base_url('authfb'), $permissions);
             
-            if(isset($_SESSION['face_access_token'])){
+            if (isset($_SESSION['face_access_token'])){
                 $fb->setDefaultAccessToken($_SESSION['face_access_token']);
             } else {
                 $_SESSION['face_access_token'] = (string) $accessToken;
@@ -107,7 +117,7 @@ class User extends CI_Controller
 
                     $rs = $this->userm->insertUser($arrayUser);
 
-                    if($rs) {
+                    if ($rs) {
                         $this->session->set_userdata("sessao_user", $arrayUser);
                         redirect('index');
                     }
@@ -150,7 +160,7 @@ class User extends CI_Controller
 
             $rs = $this->userm->insertUser($arrayUser);
 
-            if($rs) {
+            if ($rs) {
                 $this->session->set_flashdata('success', 'Registration successfully complete!');
                 redirect('');
             }
@@ -186,39 +196,6 @@ class User extends CI_Controller
         if ($this->userm->updateWork($this->session->userdata['sessao_user']['id'], time())) {
             $this->session->unset_userdata("sessao_user");
             redirect('');
-        }
-    }
-
-    /**
-     * Undocumented function
-     *
-     * @return void
-     */
-    public function returnListUsers()
-    {
-        $result = $this->userm->getAllUsers($this->session->userdata['sessao_user']['id']);
-
-        if ($result) {
-            foreach ($result as $row) {
-                $result2 = $this->userm->getLastMessageUsers($this->session->userdata['sessao_user']['id'], $row['id']);
-
-                $array[] = array(
-                    'nome'      => $row['nome'],
-                    'email'     => $row['email'],
-                    'id'        => $row['id'],
-                    'imagem'    => $row['imagem'],
-                    'inicio'    => (float) $row['inicio'],
-                    'data'      => $result2 ? $result2->data : '',
-                    'timestamp' => $result2 ? $result2->timestamp : 0,
-                    'mensagem'  => $result2 ? $result2->mensagem : ''
-                );
-            }
-
-            usort($array, function ($a, $b) {
-                return $b['timestamp'] - $a['timestamp'];
-            });
-
-            response($array);
         }
     }
 }
