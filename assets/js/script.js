@@ -190,7 +190,9 @@ function sendMessage() {
                 id_contato: id_
             },
             success: (msg) => {
-                if (msg.status == 'OK') { loadMessages() }
+                if (msg.status == 'OK') { 
+                    loadMessages() 
+                }
             },
             complete: () => { fixScrollChatBottom() },
             error: (e) => { console.log(e) }
@@ -201,9 +203,10 @@ function sendMessage() {
 
     if ($('#mensagem').val() == '') {
         alert('Digite uma mensagem!');
-    } else {
-        requestMessage();
+        return false;
     }
-
+    
+    requestMessage();
+    
     return false;
 }
