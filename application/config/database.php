@@ -70,7 +70,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | The $query_builder variables lets you determine whether or not to load
 | the query builder class.
 */
-$active_group = 'web';
+$active_group = 'local';
 $query_builder = TRUE;
 
 $db['web'] = array(
@@ -96,11 +96,11 @@ $db['web'] = array(
 );
 
 $db['local'] = array(
-	'dsn'   => 'mysql:host=localhost;dbname=chat',
+	'dsn'   => 'mysql:host=localhost;dbname=whatsapp',
 	'hostname' => 'localhost',
 	'username' => 'root',
-	'password' => '1234',
-	'database' => 'chat',
+	'password' => 'root',
+	'database' => 'whatsapp',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
