@@ -8,10 +8,11 @@
             <div class="row wa-navbar">
                 <div class="col-8">
                     <?php if ($this->session->userdata['sessao_user']['imagem']) : ?>
-                        <img src="<?= $this->session->userdata['sessao_user']['imagem'] ?>" class="rounded-circle" />
+                        <!--<img src="<?= $this->session->userdata['sessao_user']['imagem'] ?>" class="rounded-circle" />-->
                     <?php else : ?>
-                        <img src="<?= base_url() ?>assets/images/profile.png" class="rounded-circle" />
+                        <!--<img src="<?= base_url() ?>assets/images/profile.png" class="rounded-circle" />-->
                     <?php endif; ?>
+                    <img src="<?= base_url() ?>assets/images/profile.png" class="rounded-circle" />
 
                     <?= $this->session->userdata['sessao_user']['nome'] ?>
                 </div>
