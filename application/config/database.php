@@ -73,35 +73,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $active_group = 'local';
 $query_builder = TRUE;
 
-$db['web'] = array(
-	'dsn'   => 'mysql:host=brasilnota.com.br;dbname=ifcombr_teste',
-	'hostname' => 'brasilnota.com.br',
-	'username' => 'ifcombr_suporte',
-	'password' => 'suporteA1012',
-	'database' => 'ifcombr_teste',
-	'dbdriver' => 'mysqli',
-	'dbprefix' => '',
-	'pconnect' => FALSE,
-	'db_debug' => (ENVIRONMENT !== 'production'),
-	'cache_on' => FALSE,
-	'cachedir' => '',
-	'char_set' => 'utf8',
-	'dbcollat' => 'utf8_general_ci',
-	'swap_pre' => '',
-	'encrypt' => FALSE,
-	'compress' => FALSE,
-	'stricton' => FALSE,
-	'failover' => array(),
-	'save_queries' => TRUE
-);
-
 $db['local'] = array(
 	'dsn'   => 'mysql:host=localhost;dbname=whatsapp',
 	'hostname' => 'localhost',
 	'username' => 'root',
-	'password' => 'root',
+	'password' => '',
 	'database' => 'whatsapp',
-	'dbdriver' => 'mysqli',
+	'dbdriver' => 'pdo',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
 	'db_debug' => TRUE,
