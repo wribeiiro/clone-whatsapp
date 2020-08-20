@@ -74,11 +74,11 @@ $active_group = 'local';
 $query_builder = TRUE;
 
 $db['local'] = array(
-	'dsn'   => 'mysql:host=localhost;dbname=whatsapp',
-	'hostname' => 'localhost',
-	'username' => 'root',
-	'password' => '',
-	'database' => 'whatsapp',
+	'dsn'   => 'mysql:host=wribeiiro.com;dbname=xxx',
+	'hostname' => 'wribeiiro.com',
+	'username' => 'xxx',
+	'password' => 'xxx',
+	'database' => 'xxx',
 	'dbdriver' => 'pdo',
 	'dbprefix' => '',
 	'pconnect' => FALSE,

@@ -193,9 +193,9 @@ class User extends CI_Controller
      */
     public function logoff()
     {
-        if ($this->userm->updateWork($this->session->userdata['sessao_user']['id'], time())) {
+        //if ($this->userm->updateWork($this->session->userdata['sessao_user']['id'], time())) {
             $this->session->unset_userdata("sessao_user");
             redirect('');
-        }
+        //}
     }
 }

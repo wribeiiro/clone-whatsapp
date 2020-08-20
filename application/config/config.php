@@ -26,7 +26,8 @@ ini_set('max_execution_time', 0);
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'http://localhost/projetos/clone-whatsapp/';
+//$config['base_url'] = 'http://localhost/projetos/clone-whatsapp/';
+$config['base_url'] = 'https://www.wribeiiro.com/clone-whatsapp/';
 /*
 |--------------------------------------------------------------------------
 | Index File

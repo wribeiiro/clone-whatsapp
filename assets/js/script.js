@@ -123,6 +123,9 @@ function fixScrollChatBottom() {
 function loadUsers() {
     let createMenu = (data) => {
         let listContact = $('.list-contacts');
+
+        if (!data.length)
+            return false
         
         data.forEach((user) => {
             let message = user.mensagem ? user.mensagem : 'Clique para iniciar..';
